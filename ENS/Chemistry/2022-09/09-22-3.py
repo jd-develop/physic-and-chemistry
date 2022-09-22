@@ -17,5 +17,5 @@ elements_in_human_body = {
 }
 
 plt.bar(elements_in_human_body.keys(), elements_in_human_body.values())
-plt.title("Repartition of the chemical elements in a human body (%)")
+plt.title("Repartition of the chemical elements in a human body (% of the matter)")
 plt.show()

@@ -17,5 +17,5 @@ elements_on_earth = {
 }
 
 plt.bar(elements_on_earth.keys(), elements_on_earth.values())
-plt.title("Repartition of the chemical elements on the earth (%)")
+plt.title("Repartition of the chemical elements on the earth (% of the matter)")
 plt.show()

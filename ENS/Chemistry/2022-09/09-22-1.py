@@ -16,5 +16,5 @@ elements_in_universe = {
 }
 
 plt.bar(elements_in_universe.keys(), elements_in_universe.values())
-plt.title("Repartition of the chemical elements in the universe (%)")
+plt.title("Repartition of the chemical elements in the universe (% of the matter)")
 plt.show()
