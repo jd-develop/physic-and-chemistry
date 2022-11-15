@@ -5,7 +5,9 @@
 choix = "None"
 while not choix.isdigit() or choix not in "12":
     choix = input(
-        "taper 1 pour déterminer la position de l'image et le grandissement.\ntaper 2 pour déterminer la taille de l'image.\n")
+        "taper 1 pour déterminer la position de l'image et le grandissement.\n"
+        "taper 2 pour déterminer la taille de l'image.\n"
+    )
 choix = int(choix)
 
 if choix == 1:
