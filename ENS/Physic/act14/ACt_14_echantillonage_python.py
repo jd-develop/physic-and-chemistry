@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 from math import *
-import numpy as np
 
 # =====================================================
 # Initialisation des signaux (réels et échantillonnage)
@@ -26,7 +25,7 @@ c1 = T1
 c2 = T2
 c3 = T3
 
-value_1 = value_2 = value_3 = 0
+value_1 = value_2 = value_3 = value_4 = 0
 
 for k in range(5000):
     # Signal réel
@@ -83,12 +82,14 @@ Y = []
 Y1 = []
 Y2 = []
 Y3 = []
+Y4 = []
 
 # ===============================================
 # 3 périodes d'échantillonnage différentes
 T1 = 600
 T2 = 300
 T3 = 100
+T4 = 2
 
 # ===============================================
 # Périodes des sinusoïdes composant le signal
@@ -100,6 +101,7 @@ T_bis = 200
 c1 = T1
 c2 = T2
 c3 = T3
+c4 = T4
 
 for k in range(5000):
     # Signal réel
@@ -108,7 +110,6 @@ for k in range(5000):
 
     # Échantillonnage 1
     if c1 >= T1:  # Si on a atteint la période d'échantillonnage
-
         # Alors on prélève une nouvelle valeur du signal
         value_1 = sin(2 * pi * k / T) + 0.3 * sin(2 * pi * k / T_bis)
         c1 = 0
@@ -129,6 +130,13 @@ for k in range(5000):
     Y3 += [value_3]
     c3 += 1
 
+    # Échantillonnage 4
+    if c4 >= T4:
+        value_4 = sin(2 * pi * k / T) + 0.3 * sin(2 * pi * k / T_bis)
+        c4 = 0
+    Y4 += [value_4]
+    c4 += 1
+
 # ===========================================================
 # Affichage des échantillonnages
 
@@ -145,4 +153,9 @@ plt.show()
 plt.plot(X, Y, color="deeppink")
 plt.plot(X, Y3, color="black")
 plt.title("T_échantillonnage = " + str(T3) + " s  T_min_signal = " + str(T_bis) + " s")
+plt.show()
+
+plt.plot(X, Y, color="deeppink")
+plt.plot(X, Y4, color="black")
+plt.title("T_échantillonnage = " + str(T4) + " s  T_min_signal = " + str(T_bis) + " s")
 plt.show()
