@@ -60,5 +60,7 @@ for rayon in y_0:
     plt.plot([-1, abscisse(rayon), 20], [rayon, rayon, ordonnee_rayon_refracte(20, rayon)], "b-")
 
 plt.axis("scaled")  # repère orthonormé
+plt.xlabel("x (cm)")
+plt.ylabel("y (cm)")
 plt.show()
 
