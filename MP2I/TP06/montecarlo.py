@@ -11,10 +11,10 @@ import numpy.random as rd
 # tensions en Volt et intensités en milliampère
 tension = np.array([-11.946, -8.966, -7.460, 2.972, 4.479, 5.985])
 intensite = np.array([-2.602, -1.952, -1.623, 0.645, 0.973, 1.302])
-s_tension   =   tension * 0.1 + 2*0.001  # précision sur la tension
-s_intensite = intensite * 0.5 + (10**-6) # précision sur l’intensité
-                                         # (10 digits avec comme unité 0.1 μA,
-                                         # donc 0.1*10*10^-6 soit 10^-6)
+s_tension   =   tension * 0.001 + 2*0.001  # précision sur la tension
+s_intensite = intensite * 0.005 + (10**-6) # précision sur l’intensité
+                                           # (10 digits avec comme unité 0.1 μA,
+                                           # donc 0.1*10*10^-6 soit 10^-6)
 N = 10000  # nombre de valeurs tirées aléatoirement
 
 # u = Ri+0
