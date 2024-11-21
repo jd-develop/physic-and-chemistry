@@ -3,9 +3,11 @@
 import numpy as np
 
 N = 100000
+# longueurs d’onde étudiées
 lambda1 = np.array([404.7, 407.8, 435.8, 491.6, 546.1, 577.0, 579.1, 690.7])
 lambda1 *= 1e-9  # millimètres
 
+# valeurs d’angle mesurées
 theta1 = np.array([137+29/60, 137 + 17/60, 135+16/60, 134+11/60, 132+7/60, 131, 130.5+22/60, 129+9/60])
 thetam1 = np.array([165.5+23/60, 166.35, 167, 169, 170.5+28/60, 172+2/60, 172+10/60, 173.5+16/60])
 
