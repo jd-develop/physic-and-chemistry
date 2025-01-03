@@ -10,6 +10,10 @@ phi = np.array([-90, -87.84, -86.67, -85.61, -81.34, -70.30, -56.3, -32.66, -0.6
 f = np.array([50, 100, 300, 500, 1e3, 2e3, 3e3, 4e3, 5e3, 7e3, 1e4, 2e4, 3e4, 5e4, 1e5, 3e5, 5e5])
 
 plt.xscale("log")
+plt.yscale("linear")
+plt.xlabel("fréquence (Hz)")
+plt.ylabel("Déphasage (°)")
+# plt.plot(f, 20 * np.log10(vs/ve), "ro-")
 plt.plot(f, phi, "ro-")
 plt.grid(True, which="both")
 plt.show()
