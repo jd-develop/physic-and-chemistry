@@ -11,14 +11,14 @@ i = np.array([0.74, 0.5, 0.3])*(1e-2)  # centimètres
 
 a_di, b_di = np.polyfit(1/d, i, 1)
 
-# plt.plot(1/d, i, "ro")
-# x = 1 / np.linspace(200e-6, 500e-6, 100)
-# plt.plot(x, a_di * x + b_di)
-# plt.text(2000, 0.007, f"i = {round(a_di,8)}/d + {round(b_di, 8)}")
-# plt.xlabel("1/d en 1/m")
-# plt.ylabel("i en m")
-# plt.grid(True)
-# plt.show()
+plt.plot(1/d, i, "ro")
+x = 1 / np.linspace(200e-6, 500e-6, 100)
+plt.plot(x, a_di * x + b_di)
+plt.text(2000, 0.007, f"i = {round(a_di,8)}/d + {round(b_di, 8)}")
+plt.xlabel("1/d en 1/m")
+plt.ylabel("i en m")
+plt.grid(True)
+plt.show()
 
 # i en fonction de D
 # avec d = 200 μm
