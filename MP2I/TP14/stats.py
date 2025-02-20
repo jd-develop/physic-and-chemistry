@@ -5,7 +5,6 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 # l-l_0 en fonction de m
-# avec D = 242.5 cm
 m = np.array([0, 10, 20, 40, 50, 100, 150])*(1e-3)  # grammes
 lml0 = np.array([0, 0.5, 0.9, 1.8, 2.1, 4.4, 6.2])*(1e-2)  # centimètres
 
