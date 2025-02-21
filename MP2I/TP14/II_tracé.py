@@ -16,7 +16,7 @@ def plot_file(file: str, offset: float = 0):
     donnees_csv_t = [float(s.split(",")[0]) for s in donnees_csv]
     donnees_csv_y = [float(s.split(",")[2]) + offset for s in donnees_csv]
     plt.xlabel("t en secondes")
-    plt.ylabel("aY en mètres")
+    plt.ylabel("aY en mètres par secondes au carré")
 
     plt.plot(donnees_csv_t, donnees_csv_y, '.')
 
