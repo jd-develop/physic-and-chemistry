@@ -16,11 +16,12 @@ def plot_file(file: str, offset: float = 0):
     donnees_csv_t = [float(s.split(",")[0]) for s in donnees_csv]
     donnees_csv_y = [float(s.split(",")[2]) + offset for s in donnees_csv]
 
-    plt.plot(donnees_csv_t, donnees_csv_y)
+    plt.plot(donnees_csv_t, donnees_csv_y, '.')
 
 
 plot_file("acceleration_sans_g.csv")
-plot_file("acceleration_avec_g.csv", 9.8)
+plt.show()
+plot_file("acceleration_avec_g.csv")
 plt.show()
 plot_file("acceleration_frottements1.csv")
 plt.show()
