@@ -12,7 +12,7 @@ def j(t_0: float, OG: float) -> float:
     return ((t_0**2) * M * G * OG)/(tau**2)
 
 d = np.array([4.9, 5.4, 6.3, 6.6, 8.1]) * 1e-2  # en mètres
-T_0 = np.array([6.2, 6.1, 6.4, 6.5, 6.6]) / 10  # en secondes
+T_0 = np.array([6.2, 6.2, 6.4, 6.5, 6.6]) / 10  # en secondes
 
 J_OΔ = [j(t_0, d[i]) for i, t_0 in enumerate(T_0)]
 d2 = np.array(d)**2
