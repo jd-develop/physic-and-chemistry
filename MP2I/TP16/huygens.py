@@ -24,5 +24,8 @@ J_OΔ_reglin = [a*x + b for x in d2linspace]
 
 plt.plot(d2, J_OΔ, 'o')
 plt.plot(d2linspace, J_OΔ_reglin)
+plt.xlabel("OG² (en m²)")
+plt.ylabel("J_OΔ (en kg·m²)")
+plt.title("J_OΔ en fonction de OG²")
 plt.show()
 
