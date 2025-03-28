@@ -12,7 +12,7 @@ if contenu[-1] == "\n":
 
 contenu.pop(0)
 
-contenu_converted = [list(map(float, line.split(";"))) for line in contenu]
+contenu_converted = [list(map(float, line.split(";"))) for line in contenu][90:100]
 
 t = [l[0] for l in contenu_converted]
 x = [l[1] for l in contenu_converted]
@@ -25,15 +25,14 @@ def speed_vect(x: list[float], y: list[float], dt: float, i: int):
     vy = (y[i+1] - y[i]) / dt
     plt.quiver(x[i], y[i], vx, vy, scale_units="xy", angles="xy", color="blue", width=0.005)
     plt.text(x[i]+0.20, y[i]+0.05, r"$\vec{v}$" + str(i), color="blue")
-    speed = sqrt(vx**2+vy**2) 
-    print(f"À la position {i} la vitesse est de {round(speed, 2)} m/s")
+    speed = sqrt(vx**2 + vy**2)
+    print(f"À la position {i}, la vitesse est de {round(speed, 2)} m/s")
 
-dt = t[1] - t[0] # constante
+dt = t[1] - t[0]  # constante
 
-plt.plot(x, y, "ro")
-speed_vect(x, y, dt, 0)
-speed_vect(x, y, dt, len(t) // 2)
-speed_vect(x, y, dt, len(t) - 2)
+plt.plot(x, y, "r")
+for i in range(len(x)-1):
+    speed_vect(x, y, dt, i)
 plt.xlabel("Position x")
 plt.ylabel("Position y")
 plt.grid()
