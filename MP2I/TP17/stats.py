@@ -17,20 +17,21 @@ contenu_converted = [list(map(float, line.split(";"))) for line in contenu][90:1
 t = [l[0] for l in contenu_converted]
 x = [l[1] for l in contenu_converted]
 y = [l[3] for l in contenu_converted]
-v = [l[5] for l in contenu_converted]
-a = [l[7] for l in contenu_converted]
-
-def speed_vect(x: list[float], y: list[float], dt: float, i: int):
-    vx = (x[i+1] - x[i]) / dt
-    vy = (y[i+1] - y[i]) / dt
-    plt.quiver(x[i], y[i], vx, vy, scale_units="xy", angles="xy", color="blue", width=0.005)
-    plt.text(x[i]+0.20, y[i]+0.05, r"$\vec{v}$" + str(i), color="blue")
-    speed = sqrt(vx**2 + vy**2)
-    print(f"À la position {i}, la vitesse est de {round(speed, 2)} m/s")
 
 dt = t[1] - t[0]  # constante
 
-plt.plot(x, y, "r")
+vx = [(x[i+1] - x[i]) / dt for i in range(len(x) - 1)]
+vy = [(y[i+1] - y[i]) / dt for i in range(len(y) - 1)]
+ax = [(vx[i+1] - vx[i]) / dt for i in range(len(vx) - 1)]
+ay = [(vy[i+1] - vy[i]) / dt for i in range(len(vy) - 1)]
+
+def speed_vect(dt: float, i: int):
+    plt.quiver(x[i], y[i], vx[i], vy[i], scale_units="xy", angles="xy", color="blue", width=0.005)
+    plt.text(x[i]+0.20, y[i]+0.05, r"$\vec{v}$" + str(i), color="blue")
+    speed = sqrt(vx[i]**2 + vy[i]**2)
+    print(f"À la position {i}, la vitesse est de {round(speed, 2)} m/s")
+    
+plt.plot(x, y, "ro")
 for i in range(len(x)-1):
     speed_vect(x, y, dt, i)
 plt.xlabel("Position x")
