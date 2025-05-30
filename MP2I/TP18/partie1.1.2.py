@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+# type: ignore
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -7,5 +11,8 @@ I = np.array([0.00, 0.11, 0.23, 0.33, 0.44, 0.55, 0.67, 0.74, 0.91, 1.08, 1.19, 
 bx =  np.array([0.09, 0.16, 0.23, 0.29, 0.37, 0.44, 0.51, 0.55, 0.66, 0.76, 0.82, 0.91, 0.96, 1.06, 1.10])
 bz = np.array([])
 
+plt.xlabel("Intensité du courant (A)")
+plt.ylabel("Champ magnétique (mT)")
+plt.grid()
 plt.plot(I, bx, "ro")
 plt.show()

@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+# type: ignore
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -13,6 +17,8 @@ moinsbx.extend(bx)
 
 bz = np.array([0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1])
 
+plt.xlabel("Distance du teslamètre (cm)")
+plt.ylabel("Champ magnétique (mT)")
 plt.plot(moinslongueur, moinsbx)
 plt.grid()
 plt.show()
