@@ -42,10 +42,17 @@ def euler_ordre_1_passe_bas(
 
 
 print(FRÉQUENCE_COUPURE)
+sinus_100_hz = [math.sin(math.tau*(100)*(t/1e4)) for t in range(500)]
+sinus_100_hz_amplifié = [20*math.sin(math.tau*(100)*(t/1e4)) for t in range(500)]
 sinus_1_khz = [math.sin(math.tau*(1e3)*(t/1e5)) for t in range(500)]
 sinus_freq_coupure = [math.sin(OMEGA_0*(t/1e5)) for t in range(500)]
 sinus_10_khz = [math.sin(math.tau*(10e3)*(t/1e6)) for t in range(500)]
 sinus_100_khz = [math.sin(math.tau*(100e3)*(t/1e7)) for t in range(500)]
+
+plt.plot(range(500), sinus_100_hz_amplifié)  # type: ignore
+plt.plot(range(501), euler_ordre_1_passe_bas(sinus_100_hz, 0, 1e4, FRÉQUENCE_COUPURE))  # type: ignore
+plt.title("Fréquence : 1 hHz (l’amplitude du signal d’entrée est exagérée d’un facteur 20 pour être visible)")  # type: ignore
+plt.show()  # type: ignore
 
 plt.plot(range(500), sinus_1_khz)  # type: ignore
 plt.plot(range(501), euler_ordre_1_passe_bas(sinus_1_khz, 0, 1e5, FRÉQUENCE_COUPURE))  # type: ignore
