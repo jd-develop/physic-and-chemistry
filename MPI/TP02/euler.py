@@ -30,11 +30,16 @@ def euler_ordre_1_passe_bas(
     v_s_1 = [v_s_0]
     s_n = v_s_0
 
+    omega_0 = math.tau*f_c  # τ=2π
+
     # précalcul du facteur devant v_e dans l’expression de s_(n+1)
-    facteur = -1/f_e * (R_2/R_1) * (math.tau*f_c)  # τ=2π
+    facteur1 = -1/f_e * (R_2/R_1) * omega_0
+    # précalcul du facteur devant s_n dans l’expression de s_(n+1)
+    facteur2 = 1 - (1/f_e)*omega_0
+
 
     for v in v_e:
-        s_n_plus_1 = facteur*v + s_n
+        s_n_plus_1 = facteur1*v + facteur2*s_n
         v_s_1.append(s_n_plus_1)
         s_n = s_n_plus_1
 
@@ -49,27 +54,32 @@ sinus_freq_coupure = [math.sin(OMEGA_0*(t/1e5)) for t in range(500)]
 sinus_10_khz = [math.sin(math.tau*(10e3)*(t/1e6)) for t in range(500)]
 sinus_100_khz = [math.sin(math.tau*(100e3)*(t/1e7)) for t in range(500)]
 
-plt.plot(range(500), sinus_100_hz_amplifié)  # type: ignore
-plt.plot(range(501), euler_ordre_1_passe_bas(sinus_100_hz, 0, 1e4, FRÉQUENCE_COUPURE))  # type: ignore
+plt.plot(range(500), sinus_100_hz_amplifié, label="Entrée")  # type: ignore
+plt.plot(range(501), euler_ordre_1_passe_bas(sinus_100_hz, 0, 1e4, FRÉQUENCE_COUPURE), label="Sortie")  # type: ignore
 plt.title("Fréquence : 1 hHz (l’amplitude du signal d’entrée est exagérée d’un facteur 20 pour être visible)")  # type: ignore
+plt.legend()  # type: ignore
 plt.show()  # type: ignore
 
-plt.plot(range(500), sinus_1_khz)  # type: ignore
-plt.plot(range(501), euler_ordre_1_passe_bas(sinus_1_khz, 0, 1e5, FRÉQUENCE_COUPURE))  # type: ignore
+plt.plot(range(500), sinus_1_khz, label="Entrée")  # type: ignore
+plt.plot(range(501), euler_ordre_1_passe_bas(sinus_1_khz, 0, 1e5, FRÉQUENCE_COUPURE), label="Sortie")  # type: ignore
 plt.title("Fréquence : 1 kHz")  # type: ignore
+plt.legend()  # type: ignore
 plt.show()  # type: ignore
 
-plt.plot(range(500), sinus_freq_coupure)  # type: ignore
-plt.plot(range(501), euler_ordre_1_passe_bas(sinus_freq_coupure, 0, 1e5, FRÉQUENCE_COUPURE))  # type: ignore
+plt.plot(range(500), sinus_freq_coupure, label="Entrée")  # type: ignore
+plt.plot(range(501), euler_ordre_1_passe_bas(sinus_freq_coupure, 0, 1e5, FRÉQUENCE_COUPURE), label="Sortie")  # type: ignore
 plt.title(f"Fréquence de coupure : {FRÉQUENCE_COUPURE:.2f} Hz")  # type: ignore
+plt.legend()  # type: ignore
 plt.show()  # type: ignore
 
-plt.plot(range(500), sinus_10_khz)  # type: ignore
-plt.plot(range(501), euler_ordre_1_passe_bas(sinus_10_khz, 0, 1e6, FRÉQUENCE_COUPURE))  # type: ignore
+plt.plot(range(500), sinus_10_khz, label="Entrée")  # type: ignore
+plt.plot(range(501), euler_ordre_1_passe_bas(sinus_10_khz, 0, 1e6, FRÉQUENCE_COUPURE), label="Sortie")  # type: ignore
 plt.title("Fréquence : 10 kHz")  # type: ignore
+plt.legend()  # type: ignore
 plt.show()  # type: ignore
 
-plt.plot(range(500), sinus_100_khz)  # type: ignore
-plt.plot(range(501), euler_ordre_1_passe_bas(sinus_100_khz, 0, 1e7, FRÉQUENCE_COUPURE))  # type: ignore
+plt.plot(range(500), sinus_100_khz, label="Entrée")  # type: ignore
+plt.plot(range(501), euler_ordre_1_passe_bas(sinus_100_khz, 0, 1e7, FRÉQUENCE_COUPURE), label="Sortie")  # type: ignore
 plt.title("Fréquence : 100 kHz")  # type: ignore
+plt.legend()  # type: ignore
 plt.show()  # type: ignore
