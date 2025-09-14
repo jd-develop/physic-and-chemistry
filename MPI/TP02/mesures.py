@@ -14,11 +14,15 @@ GdB = 20*np.log10(H)
 
 plt.plot(freq, GdB)
 plt.xscale("log")
+plt.xlabel("Fréquence (kHz, échelle log)")
+plt.ylabel("Gain en dB")
 plt.grid()
 plt.show()
 
 plt.plot(freq, phi)
 plt.xscale("log")
+plt.xlabel("Fréquence (kHz, échelle log)")
+plt.ylabel("Phase (°)")
 plt.grid()
 plt.show()
 
