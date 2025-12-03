@@ -34,7 +34,7 @@ def calculer_potentiels(v_init):
     return v
 
 
-def afficher_potentiels(v, b):
+def afficher_potentiels(v):
     # plt.imshow(v)
     # plt.colorbar()
 
@@ -43,17 +43,17 @@ def afficher_potentiels(v, b):
 
 
 v_init = np.zeros((L, L), dtype=float)
-for i in range(L):
-    v_init[i][0] = 1
-    v_init[i][L-1] = 1
-    v_init[0][i] = 1
-    # v_init[L-1][i] = 1
+# for i in range(L):
+#     v_init[i][0] = 1
+#     v_init[i][L-1] = 1
+#     v_init[0][i] = 1
+#     # v_init[L-1][i] = 1
 for i in range(80):
     B[40][10+i] = True
     v_init[40][10+i] = 3
     B[60][10+i] = True
     v_init[60][10+i] = -3
 v = calculer_potentiels(v_init)
-afficher_potentiels(v, B)
+afficher_potentiels(v)
 
 
