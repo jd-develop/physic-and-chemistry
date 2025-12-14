@@ -18,6 +18,8 @@ cos2theta = np.cos(theta)**2
 pfit = np.polyfit(cos2theta, vmes, 1)
 a, b = pfit[0], pfit[1]
 x=np.linspace(min(cos2theta), max(cos2theta), 1000)
-plt.plot(x, a*x+b)
 plt.errorbar(cos2theta, vmes, xerr=2*incertitude_cos2_theta, yerr=2*incertitudes_vmes, fmt='.')
+plt.show()
+plt.errorbar(cos2theta, vmes, xerr=2*incertitude_cos2_theta, yerr=2*incertitudes_vmes, fmt='.')
+plt.plot(x, a*x+b)
 plt.show()
