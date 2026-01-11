@@ -2,7 +2,6 @@
 # -*- coding:utf-8 -*-
 # type: ignore
 import numpy as np
-from matplotlib import pyplot as plt
 
 τ = 3.96   # ms, interfrange
 u_τ = np.sqrt(2/3) * 0.5  # largeur de l’intervalle de confiance : 1 ms
