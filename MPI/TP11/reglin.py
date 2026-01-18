@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 
 d = [30, 40, 50, 60, 70, 80]  # centimètres
 r = np.array([0.45+0.55, 0.6+0.7, 0.75+0.9, 0.9+1.1, 1.0+1.3, 1.15+1.5])/2  # largeur tache centrale, centimètres
-u_r = (1/10) / (2*np.sqrt(3))
+u_r = (1/10) / (np.sqrt(2*3))
 λ = 6.50e-5  # centimètres
 largeur_fente_constructeur = 40
 
