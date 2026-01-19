@@ -34,8 +34,8 @@ def polyn(x):
 X = np.linspace(min(λ), max(λ), 100)
 y = polyn(X)
 
-plt.plot(X, y)
 plt.plot(λ, Dmin)
+plt.plot(X, y)
 plt.grid()
 plt.show()
 #expected 589
