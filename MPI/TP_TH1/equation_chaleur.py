@@ -5,6 +5,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 L = 0.30  # mètres
+# Aluminium
 λ = 237  # Watt par mètre par Kelvin
 ρ = 2698.9  # kilogrammes par mètre cube
 c = 900  # Joule par kilogramme par Kelvin
@@ -12,7 +13,7 @@ dt = 0.1  # secondes
 dx = 0.005  # mètres
 
 T_0 = 300
-T_1 = 320
+ΔT = 20
 
 D = λ/(ρ*c)
 τ = L*L/D
@@ -26,7 +27,7 @@ X = np.array([i*dx for i in range(int(L/dx))])
 # température à un instant donné en fonction de la longueur)
 temp = np.zeros((t_max, int(L/dx)))
 
-temp[0] = (T_0 + T_1*np.sin((np.pi/L) * X))  # T(x, 0)
+temp[0] = (T_0 + ΔT*np.sin((np.pi/L) * X))  # T(x, 0)
 
 for t in range(t_max-1):
     temp[t+1][0] = T_0
