@@ -21,26 +21,29 @@ t_1 = int(τ)
 t_2 = 3*int(τ)
 t_max = 10*int(τ)
 
-X = np.array([i*dx for i in range(int(L/dx))])
+X = np.array([i*dx for i in range(int(L/dx)+1)])
 
 # tableau de la température en fonction du temps (contient des tableaux de la
 # température à un instant donné en fonction de la longueur)
-temp = np.zeros((t_max, int(L/dx)))
+temp = np.zeros((t_max, int(L/dx)+1))
 
 temp[0] = (T_0 + ΔT*np.sin((np.pi/L) * X))  # T(x, 0)
 
 for t in range(t_max-1):
     temp[t+1][0] = T_0
     temp[t+1][-1] = T_0
-    for i in range(1, int(L/dx)-1):
+    for i in range(1, int(L/dx)):
         temp[t+1][i] = \
             dt * D * (temp[t][i+1] + temp[t][i-1] - 2*temp[t][i])/(dx**2) + temp[t][i]
 
 
-plt.plot(X, temp[0])
-plt.plot(X, temp[t_1-1])
-plt.plot(X, temp[t_2-1])
-plt.plot(X, temp[t_max-1])
+plt.plot(X, temp[0], label="T(0)")
+plt.plot(X, temp[t_1-1], label="T(τ)")
+plt.plot(X, temp[t_2-1], label="T(3τ)")
+plt.plot(X, temp[t_max-1], label="T(10τ)")
 plt.grid()
+plt.legend()
+plt.xlabel("Longueur L en mètres")
+plt.ylabel("Température T en Kelvin")
 plt.show()
 
